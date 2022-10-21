@@ -1,4 +1,5 @@
-from snakesay.snakesay import snakesay, MESSAGE
+from snakesay import snakesay
+from snakesay.snakesay import MESSAGE
 
 
 def test_nothing():

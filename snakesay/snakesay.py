@@ -38,5 +38,9 @@ def rewrap(speech: str) -> Tuple[List[str], int]:
     return [line.ljust(width) for line in lines], width
 
 
-if __name__ == '__main__':
+def main():
     print(snakesay(*sys.argv[1:]))
+
+
+if __name__ == '__main__':
+    main()

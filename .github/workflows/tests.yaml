@@ -25,19 +25,15 @@ jobs:
         python-version: ${{ matrix.python-version }}
 
 
-    - name: Install poetry
+    - name: Install dependencies
       run: |
         python -m pip install --upgrade pip
-        python -m pip install poetry
-
-    - name: Install dependencies
-      shell: bash
-      run: python -m poetry install
+        python -m pip install -r requirements-dev.txt
 
     - name: Test with pytest
       run: |
-        python -m poetry run pytest
+        PYTHONPATH=. pytest
 
     - name: Check coverage
       run: |
-        python -m poetry run pytest --cov=snakesay --cov-fail-under=65
+        PYTHONPATH=. pytest --cov=snakesay --cov-fail-under=65
