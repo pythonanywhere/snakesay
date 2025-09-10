@@ -1,21 +1,18 @@
 [project]
 name = "snakesay"
-version = "0.10.3"
+version = "0.10.4"
 description = "speaking snake"
 authors = [
     { name="PythonAnywhere Developers", email="developers@pythonanywhere.com" }
 ]
 license = {text="MIT"}
 readme = "README.md"
-requires-python = ">=3.7"
+requires-python = ">=3.10"
 classifiers = [
     "Programming Language :: Python :: 3.13",
     "Programming Language :: Python :: 3.12",
     "Programming Language :: Python :: 3.11",
     "Programming Language :: Python :: 3.10",
-    "Programming Language :: Python :: 3.9",
-    "Programming Language :: Python :: 3.8",
-    "Programming Language :: Python :: 3.7",
     "License :: OSI Approved :: MIT License",
     "Operating System :: OS Independent",
 ]
@@ -24,6 +21,6 @@ classifiers = [
 snakesay = "snakesay.snakesay:main"
 
 [build-system]
-requires = ["setuptools>=61.0"]
+requires = ["setuptools>=77.0.3", "wheel"]
 build-backend = "setuptools.build_meta"
 
