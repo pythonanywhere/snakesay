@@ -35,3 +35,15 @@ def test_three_lines():
 
 def test_multiple_arguments():
     assert '< hi there >' in snakesay('hi', 'there')
+
+
+def test_long_url_not_split():
+    long_url = 'https://www.example.com/very/long/path/that/exceeds/normal/line/length/and/should/not/be/split/across/multiple/lines'
+
+    message = snakesay(long_url)
+
+    assert long_url in message
+
+    lines = message.split('\n')
+    url_containing_lines = [line for line in lines if 'https://' in line]
+    assert len(url_containing_lines) == 1, "URL should appear on exactly one line"

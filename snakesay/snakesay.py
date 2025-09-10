@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 import sys
 import textwrap
+import re
 from typing import Tuple, List, Iterator
 
 MESSAGE = '\n'.join([
@@ -33,7 +34,11 @@ def speech_bubble_lines(speech) -> Iterator[str]:
 
 
 def rewrap(speech: str) -> Tuple[List[str], int]:
-    lines = textwrap.wrap(speech)
+    url_pattern = r'https?://[^\s]+'
+    if re.search(url_pattern, speech):
+        lines = textwrap.wrap(speech, break_long_words=False, break_on_hyphens=False)
+    else:
+        lines = textwrap.wrap(speech)
     width = max(len(l) for l in lines) if lines else 0
     return [line.ljust(width) for line in lines], width
 
